@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <header>
+            <h1>Babble</h1>
+            {{> loginButtons}}
+        </header>
+        <ul>
+            {{#each message in recentMessages}}
+                <li class="{{ownMessage message.username}}">
+                    <div class="username">{{message.username}}</div>
+                    <div class="message">{{message.message}}</div>
+                </li>
+            {{/each}}
+        </ul>
+        <footer>
+            {{#if currentUser}}
+                <form class="new-message">
+                    <input type="text" name="message" autocomplete="off" placeholder="Type a message!" />
+                </form>
+                {{else}}
+                <h1>Please Login/Signup to Babble!</h1>
+            {{/if}}
+        </footer>
+    </div>
+</body>
