@@ -6,9 +6,9 @@ A simple real time chat app to showcase how quick it is to get started with Mete
 To be used with  
 https://github.com/StanLindsey/meteor-babble-presentation.
 
-To use:
-- meteor
-- localhost:3000
+To use run the following on the command line:
+- `meteor`
+- `localhost:3000`
 
 To use electron & online hosting create a settings.json file with the following:
 
@@ -30,5 +30,7 @@ To use electron & online hosting create a settings.json file with the following:
 }
 
 ```
+
+then run meteor with `meteor --settings settings.json`
 
 Based on the original Meteor speaker kit: https://www.meteor.com/community/speaker-kit
