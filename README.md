@@ -6,9 +6,8 @@ A simple real time chat app to showcase how quick it is to get started with Mete
 To be used with  
 https://github.com/StanLindsey/meteor-babble-presentation.
 
-To use run the following on the command line:
-- `meteor`
-- `localhost:3000`
+To use run type `meteor` on the command line.  
+Then go to `localhost:3000` in your web browser.
 
 To use electron & online hosting create a settings.json file with the following:
 
