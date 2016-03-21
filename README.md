@@ -30,3 +30,5 @@ To use electron & online hosting create a settings.json file with the following:
 }
 
 ```
+
+Based on the original Meteor speaker kit: https://www.meteor.com/community/speaker-kit
