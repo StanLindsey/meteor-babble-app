@@ -22,7 +22,7 @@ To use electron & online hosting create a settings.json file with the following:
     "galaxy.meteor.com": {
       "env": {
         "ROOT_URL": "http://yourappurl.com",
-        "MONGO_URL": "mongodb://yourmongouser:yourmongopass@<mongodbserver>:<port>/<database>",
+        "MONGO_URL": "mongodb://<yourmongouser>:<yourmongopass>@<mongodbserver>:<port>/<database>",
         "MONGO_OPLOG_URL": ""
       }
     }

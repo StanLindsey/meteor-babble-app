@@ -1,24 +1,41 @@
+<!--
+BABBLE
+Babble is a simple chat app used as a demo and introduction to Meteor.
+https://github.com/StanLindsey/meteor-babble-app
+
+This is Blaze, essentially a reactive version of the Handlebars templating language.
+It is mostly standard HTML with some handlebar flair.
+In this simple app we are using the only default 'template' per say - the <body>.
+-->
 <body>
     <div class="container">
         <header>
             <h1>Babble</h1>
+            <!-- Includes another template, in this case loginButtons which is provided by the accounts-ui package -->
             {{> loginButtons}}
         </header>
         <ul>
+            <!-- Loops through each item in recentMessages -->
             {{#each message in recentMessages}}
+                <!-- calls the ownMessage helper and passes message.username as an arguement  -->
                 <li class="{{ownMessage message.username}}">
+                    <!-- Displays the username and message body of each message being looped -->
                     <div class="username">{{message.username}}</div>
                     <div class="message">{{message.message}}</div>
                 </li>
+            <!-- end the loop -->
             {{/each}}
         </ul>
         <footer>
+            <!-- Check if the current client is a logged in user, if true renders the message form -->
             {{#if currentUser}}
                 <form class="new-message">
                     <input type="text" name="message" autocomplete="off" placeholder="Type a message!" />
                 </form>
-                {{else}}
+            <!-- if not a logged in user, displays a prompt to login/signup -->
+            {{else}}
                 <h1>Please Login/Signup to Babble!</h1>
+            <!-- End the if/else -->
             {{/if}}
         </footer>
     </div>
