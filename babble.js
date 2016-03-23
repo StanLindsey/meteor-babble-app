@@ -64,7 +64,7 @@ if (Meteor.isClient) {
   Template.body.helpers({
     // recentMessages simply returns to the template all the messages accessible to the client, as subscribed earlier
     recentMessages() {
-      return Messages.find();
+      return Messages.find({}, { sort: { createdAt: 1 } });
     },
     // ownMessage is passed the message.username from the template
     ownMessage(msguser) {
