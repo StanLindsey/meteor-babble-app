@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     background-color: #de4f4f;
-    background-image: url("http://chito.io/content/images/2014/12/meteorjs.png");
+    background-image: url("/meteorjs.png");
     background-size: cover;
     background-position: center top;
     background-attachment: fixed;
