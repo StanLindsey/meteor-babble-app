@@ -2,29 +2,32 @@ Messages = new Mongo.Collection('messages');
 
 if (Meteor.isServer) {
   // This will only run on the server
-  Meteor.publish('messages.all', () => {
+  Meteor.publish('messages.recent', () => {
     return Messages.find({}, { sort: { createdAt: -1 }, limit: 15 });
   });
 }
 
 if (Meteor.isClient) {
   // This only runs on the client
-  Meteor.subscribe('messages.all');
+  Meteor.subscribe('messages.recent');
 }
 
 Meteor.methods({
-  'messages.add'(message) {
-    Messages.insert({
-      message,
-      createdAt: new Date(),
-      username: Meteor.user().username
-    });
+  'messages.add' (message) {
+    check(message, String);
+    if (this.userId != null) {
+      Messages.insert({
+        message,
+        createdAt: new Date(),
+        username: Meteor.user().username
+      });
+    }
   }
 });
 
 if (Meteor.isClient) {
   Template.body.events({
-    'submit .new-message'(event) {
+    'submit .new-message' (event) {
       event.preventDefault();
       const message = event.target.message.value;
       Meteor.call('messages.add', message);
