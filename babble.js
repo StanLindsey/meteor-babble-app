@@ -24,11 +24,11 @@ if (Meteor.isClient) {
 // This is available on both the client and server, the client runs a 'simulation' of the query
 Meteor.methods({
   // Meteor.methods is an object with methods. messages.add is passed through a message variable.
-  'messages.add' (message) {
+  'messages.add'(message) {
     // Check that message is a String and nothing dangerous
     check(message, String);
     // Check if the client calling this method is a currently logged in user
-    if (this.userId != null) {
+    if (this.userId !== null) {
       // Insert a document into the Messages collection
       Messages.insert({
         // Short for message: message in ES2015 syntax.
@@ -48,7 +48,7 @@ if (Meteor.isClient) {
   // Events are also defined as an object with methods
   Template.body.events({
     // Listen specifically for the submission of the .new-message form
-    'submit .new-message' (event) {
+    'submit .new-message'(event) {
       // Prevent the browser attempting the default action of POSTing the data
       event.preventDefault();
       // Grab the message from the input form and place it in a const
@@ -62,7 +62,8 @@ if (Meteor.isClient) {
   // Helpers are functions/methods that are called by the template
   // Helpers is also defined as an object with methods
   Template.body.helpers({
-    // recentMessages simply returns to the template all the messages accessible to the client, as subscribed earlier
+    // recentMessages simply returns to the template all the messages accessible to the client
+    // as subscribed earlier
     recentMessages() {
       return Messages.find({}, { sort: { createdAt: 1 } });
     },
@@ -73,6 +74,7 @@ if (Meteor.isClient) {
         // sets the class of the message to 'ownMessage' if both are identical
         return 'ownMessage';
       }
+      return '';
     }
   });
   // Sets the login form to use usernames instead of an email
