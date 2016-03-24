@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: #de4f4f;
-  background-image: url("/meteorjs.png");
+  background-image: url("http://babble.meteorapp.com/meteorjs.png");
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
@@ -24,6 +24,7 @@ body {
   background: white;
   display: flex;
   flex-direction: column;
+  width: 100%
 }
 
 header {
@@ -109,15 +110,15 @@ li {
 div .username {
   font-weight: bold;
 }
-
-@media (max-device-width: 640px) {
+/* Small Screens */
+@media screen and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 2.0) and (max-width: 1000px) {
   .new-message input {
     padding-top: 15px;
   }
-  .container {
-    width: 100%;
-  }
   body {
+    font-size: 2.5rem;
+  }
+  h1 {
     font-size: 2.5rem;
   }
   #login-dropdown-list {
@@ -132,7 +133,8 @@ div .username {
   }
 }
 
-@media (min-width: 1001px) {
+/* Large Screens*/
+@media screen and (min-device-width: 600px) and (min-width: 600px) {
   .container {
     width: 600px;
   }
